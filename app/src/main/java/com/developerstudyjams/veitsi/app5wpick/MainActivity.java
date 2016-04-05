@@ -46,22 +46,21 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String> eventAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, events);
         lstEvents.setAdapter(eventAdapter);
-//        lstEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
-//                display("for event " + position);
-//            }
-//        });
+        lstEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+                display("for event " + position);
+            }
+        });
 
         ArrayAdapter<String> greetAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, greetings);
         lstGreetings.setAdapter(greetAdapter);
-//        lstGreetings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
-//                display("for greet " + position);
-//            }
-//        });
-
+        lstGreetings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+                display("for greet " + position);
+            }
+        });
     }
 
     public void nextClick(View view) {
@@ -75,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
             this.setTitle(stages[stage]);
             viewFlipper.showNext();
             divider = 1;
+            switch (stage){
+                case 2:
+                    break;
+                case 4:
+                    break;
+            }
         }
     }
 
