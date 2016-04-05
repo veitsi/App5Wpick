@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
     ViewFlipper viewFlipper;
     TextView quantityTextView;
     int stage = 0;
-    float score = 0.0f;
-    float add=0;
+    float score = 0f;
+    float add = 0f;
     int divider = 1;
     final String[] stages = new String[]{"Intro", "1.What (to dress)?", "2.Where (to go)?",
             "3.Who (is target)?", "4.Why (he answers)?", "5.When (to meet next time)?"
@@ -26,40 +26,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.setTitle(stages[stage]);
         viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
-        quantityTextView = (TextView) findViewById(
-                R.id.txtStatus);
+        quantityTextView = (TextView) findViewById(R.id.txtStatus);
         ListView lstEvents = (ListView) findViewById(R.id.lstEvents);
         ListView lstGreetings = (ListView) findViewById(R.id.lstGreeting);
 
         final String[] events = new String[]{
-                "Java, how to improve performance", "Swinger party", "QA for beginners", "R meetup",
-                "Kyiv Algorithms Club #27 Backtracking","Speakers’ Corner. Multi threaded JS applications in the browser",
-                "Встреча сообщества Smart Talks 51: .NET, C#","Конференція ScalaUA","О чем говорят айтишники: Woman’s Day"
+                "Java, how to improve performance", "PechaKuchaNight — IT Women. Part 2", "Swinger party", "QA for beginners", "R meetup",
+                "Kyiv Algorithms Club #27 Backtracking", "Speakers’ Corner. Multi threaded JS applications in the browser",
+                "Встреча сообщества Smart Talks 51: .NET, C#", "Конференція ScalaUA", "О чем говорят айтишники: Woman’s Day"
         };
-        final int[] adds={20, 1, 20, 15, 20, 15, 20, 10};
+        final int[] adds = {20,5, 1, 20, 15, 20, 15, 20, 10};
 
         // определяем массив типа String
         final String[] greetings = new String[]{
                 "Hello, I hate Apple too",
-                "My name is Evgrafia Petrovna Zapolatskaya, I want to get merried. You looks not very good, but I don't care about this right now",
-                "Hello, do you prefer vim or ed?", "Hi, I like your speech", "Myname is Tanya ", "Heyyyy!"
+                "My name is Evgrafia Petrovna Zapolatskaya, I want to get married. You looks not very good, but I don't care about this right now",
+                "Hello, do you prefer vim or ed?", "Hi, I like your speech", "My name is Tanya ", "Heyyyy!"
         };
-
-
         //                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
         //                Toast.LENGTH_SHORT).show();
-
-
         ArrayAdapter<String> eventAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, events);
         lstEvents.setAdapter(eventAdapter);
         lstEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
-                add=20.0f;
-                add/=divider;
-                score+=add;
-                divider*=2;
+                scoring(20.0f);
                 display("for event " + position);
             }
         });
@@ -69,17 +62,16 @@ public class MainActivity extends AppCompatActivity {
         lstGreetings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+                scoring(20.0f);
                 display("for greet " + position);
             }
         });
     }
 
-    public void nextClick(View view) {
-        nextStage();
-    }
-
-    public void scoring(float score){
-
+    public void scoring(float add) {
+        add /= divider;
+        score += add;
+        divider *= 2;
     }
 
     public void nextStage() {
@@ -89,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             this.setTitle(stages[stage]);
             viewFlipper.showNext();
             divider = 1;
-            switch (stage){
+            switch (stage) {
                 case 2:
                     break;
                 case 4:
@@ -102,6 +94,18 @@ public class MainActivity extends AppCompatActivity {
         m = m + " score: " + score;
         quantityTextView.setText(m);
         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
+    }
+
+    public void nextClick(View view) {
+        nextStage();
+    }
+
+    public void dressClick(View view) {
+        view.setClickable(false);
+        float add = 20f;
+        String m = "You are awesome. Go ahead!";
+        scoring(add);
+        display(m);
     }
 
     public void guyClick(View view) {
@@ -127,10 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 add = 20.0f;
                 break;
         }
-        add = add / divider;
-        score += add;
-        divider *= 2;
-
+        scoring(add);
         display(m);
     }
 }
