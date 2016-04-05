@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     TextView quantityTextView;
     int stage = 0;
     float score = 0.0f;
+    float add=0;
     int divider = 1;
     final String[] stages = new String[]{"Intro", "1.What (to dress)?", "2.Where (to go)?",
             "3.Who (is target)?", "4.Why (he answers)?", "5.When (to meet next time)?"
@@ -31,15 +32,21 @@ public class MainActivity extends AppCompatActivity {
         ListView lstEvents = (ListView) findViewById(R.id.lstEvents);
         ListView lstGreetings = (ListView) findViewById(R.id.lstGreeting);
 
+        final String[] events = new String[]{
+                "Java, how to improve performance", "Swinger party", "QA for beginners", "R meetup",
+                "Kyiv Algorithms Club #27 Backtracking","Speakers’ Corner. Multi threaded JS applications in the browser",
+                "Встреча сообщества Smart Talks 51: .NET, C#","Конференція ScalaUA","О чем говорят айтишники: Woman’s Day"
+        };
+        final int[] adds={20, 1, 20, 15, 20, 15, 20, 10};
+
         // определяем массив типа String
         final String[] greetings = new String[]{
                 "Hello, I hate Apple too",
                 "My name is Evgrafia Petrovna Zapolatskaya, I want to get merried. You looks not very good, but I don't care about this right now",
                 "Hello, do you prefer vim or ed?", "Hi, I like your speech", "Myname is Tanya ", "Heyyyy!"
         };
-        final String[] events = new String[]{
-                "Java, how to improve performance", "Swinger party", "QA for beginners", "R meetup"
-        };
+
+
         //                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
         //                Toast.LENGTH_SHORT).show();
 
@@ -49,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
         lstEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+                add=20.0f;
+                add/=divider;
+                score+=add;
+                divider*=2;
                 display("for event " + position);
             }
         });
@@ -67,8 +78,12 @@ public class MainActivity extends AppCompatActivity {
         nextStage();
     }
 
+    public void scoring(float score){
+
+    }
+
     public void nextStage() {
-        display("some text");
+        display("coming new stage");
         if (stage < 5) {
             stage += 1;
             this.setTitle(stages[stage]);
