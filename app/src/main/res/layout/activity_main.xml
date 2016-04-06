@@ -39,23 +39,14 @@
             android:layout_height="match_parent"
             android:id="@+id/relIntro">
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="300dp"
-                android:id="@+id/imgGirl01"
-                android:src="@drawable/lonely01"
-                android:scaleType="fitEnd"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="In U.S. criminal law, means, motive, and opportunity is a common summation of the three aspects of a crime that must be established before guilt can be determined in a criminal proceeding. Respectively, they refer to: the ability of the defendant to commit the crime (means), the reason the defendant committed the crime (motive), and whether the defendant had the chance to commit the crime (opportunity). Opportunity is most often disproved by use of an alibi, which can prove the accused was not able to commit the crime as he or she did not have the correct set of circumstances to commit the crime as it occurred. Motive is not an element of many crimes, but proving motive can often make it easier to convince a jury of the elements that must be proved for a conviction.  Establishing the presence of these three elements is not, in and of itself, sufficient to convict beyond a reasonable doubt; the evidence must prove that an opportunity presented was indeed taken by the accused and for the crime with which he or she is charged. For an example, consider this ruling in the case of a suspect accused of robbery and assault:      ... evidence of motive, means, opportunity, and consciousness of guilt are not enough to establish guilt. Compare Commonwealth v. Mandile, 403 Mass. 93, 98 (1988) (evidence of motive, means, unexplained possession of property, and consciousness of guilt not enough to establish robbery). On this record the evidence is insufficient to permit a rational jury to find beyond a reasonable doubt that the defendant was the victim&apos;s assailant... Nothing in the record sufficiently links the defendant to the crime to permit the conclusion beyond a reasonable doubt that he was the perpetrator.[1]  Contrary to fictional depictions, the court cannot convict merely on these three elements; the prosecution must provide convincing evidence, and prove an opportunity actually acted upon by the defendant.  For example, if a criminal shot someone with a handgun and took his/her money when the victim was in an isolated, secluded area at night, the means would be the handgun, the motive financial (i.e., the money they stole), and the opportunity the fact that it would be unlikely someone else would witness or stop them. For the majority of crimes, means and opportunity are the easiest to prove; however, for some offenses (such as rape or serial killing), the motive can be hard to define."
+                android:text="This app helps girls to get merriage with IT-guys. It helps girl to answer 5 key questions: What to dress? Where to meet IT-guys? Who is real IT-guy on the meeting? Why the guy will interact with you? When will we see one another next time? in interactive form"
                 android:id="@+id/txtIntro"
-                android:layout_above="@+id/imgGirl01"
-                android:layout_alignParentEnd="true" />
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true" />
 
         </RelativeLayout><!--Intro-->
         <RelativeLayout
@@ -185,5 +176,14 @@
         </RelativeLayout><!--When-->
 
     </ViewFlipper>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="160dp"
+        android:id="@+id/imgGirl01"
+        android:src="@drawable/lonely01"
+        android:scaleType="centerInside"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
