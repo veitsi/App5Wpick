@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 "Kyiv Algorithms Club #27 Backtracking", "Speakers’ Corner. Multi threaded JS applications in the browser",
                 "Встреча сообщества Smart Talks 51: .NET, C#", "Конференція ScalaUA", "О чем говорят айтишники: Woman’s Day"
         };
-        final int[] adds = {20,5, 1, 20, 15, 20, 15, 20, 10};
+        final int[] eventAdds = {20,5, 1, 20, 15, 20, 15, 20, 10,5, 9, 10, 5, 18, 4};
 
         // определяем массив типа String
         final String[] greetings = new String[]{
@@ -45,15 +45,15 @@ public class MainActivity extends AppCompatActivity {
                 "My name is Evgrafia Petrovna Zapolatskaya, I want to get married. You looks not very good, but I don't care about this right now",
                 "Hello, do you prefer vim or ed?", "Hi, I like your speech", "My name is Tanya ", "Heyyyy!"
         };
-        //                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
-        //                Toast.LENGTH_SHORT).show();
+        final int[] greetsAdds = {20,5, 1, 20, 15, 20, 15, 20, 10,5, 9, 1, 20, 15, 20, 15, 20};
+
         ArrayAdapter<String> eventAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, events);
         lstEvents.setAdapter(eventAdapter);
         lstEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
-                scoring(20.0f);
-                display("for event " + position);
+                scoring(eventAdds[position]);
+                display("good choice " + position);
             }
         });
 
@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
         lstGreetings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
-                scoring(20.0f);
-                display("for greet " + position);
+                scoring(greetsAdds[position]);
+                display("good choice " + position);
             }
         });
     }
@@ -77,16 +77,10 @@ public class MainActivity extends AppCompatActivity {
     public void nextStage() {
         display("coming new stage");
         if (stage < 5) {
-            stage += 1;
+            stage ++;
             this.setTitle(stages[stage]);
             viewFlipper.showNext();
             divider = 1;
-            switch (stage) {
-                case 2:
-                    break;
-                case 4:
-                    break;
-            }
         }
     }
 

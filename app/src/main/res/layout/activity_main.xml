@@ -43,9 +43,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="This app helps girls to get merriage with IT-guys. It helps girl to answer 5 key questions: What to dress? Where to meet IT-guys? Who is real IT-guy on the meeting? Why the guy will interact with you? When will we see one another next time? in interactive form"
+                android:text="This app helps girls to get merriage with IT-guy. It helps girl to answer 5 key questions: What to dress? Where to meet IT-guys? Who is real IT-guy on the meeting? Why the guy will interact with you? When will we see one another next time? in interactive form"
                 android:id="@+id/txtIntro"
                 android:layout_centerVertical="true"
+                android:layout_alignParentStart="true" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="160dp"
+                android:id="@+id/imgGirl01"
+                android:src="@drawable/lonely01"
+                android:scaleType="centerInside"
+                android:layout_above="@+id/txtIntro"
                 android:layout_alignParentStart="true" />
 
         </RelativeLayout><!--Intro-->
@@ -177,13 +186,7 @@
 
     </ViewFlipper>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="160dp"
-        android:id="@+id/imgGirl01"
-        android:src="@drawable/lonely01"
-        android:scaleType="centerInside"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+
+
 
 </RelativeLayout>
